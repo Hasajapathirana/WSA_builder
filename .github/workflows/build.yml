@@ -26,10 +26,11 @@ jobs:
     
     
   
-       - name: Install Git
+       - name: Install Git and other requirements 
 
          run: |
             sudo apt update && sudo apt install git
+            sudo apt install qemu-img
 
         
        - name: Clone And Build
