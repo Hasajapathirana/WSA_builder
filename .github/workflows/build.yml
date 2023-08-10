@@ -1,0 +1,50 @@
+
+ 
+name: Building wsa
+
+on:
+
+
+  workflow_dispatch:
+  
+
+  
+jobs:
+
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+       - name: Checkout
+         uses: checkout@v3 
+       - name: Install Git
+
+         run: |
+            sudo apt update && sudo apt install git
+
+        
+       - name: Clone And Build
+
+         run: |
+          git clone https://github.com/LSPosed/MagiskOnWSALocal.git --depth 1
+          cd MagiskOnWSALocal
+          ./scripts/build.sh --arch x64-release-type retail magisk-ver stable -gapps-brand MindTheGapps-gapps-variant pico --root-sol magisk --compress-compress-format zip
+
+             
+
+       - name: Save
+         uses: actions/upload-artifact@v2
+         with:
+            name: WSA 
+            path: /home/runner/work/WSA_builder/WSA_builder/MagiskOnWSALocal/output/*WSA*
+            retention-days: 31
+
+          
+
+       - name: Release recovery
+         uses: softprops/action-gh-release@v1
+         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+         with:
+          tag_name: ${{ github.run_id }}
+          name:  Windows Subsystem For Android Build
+          files: /home/runner/work/WSA_builder/WSA_builder/MagiskOnWSALocal/output/*WSA*
