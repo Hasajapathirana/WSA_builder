@@ -37,7 +37,7 @@ jobs:
          run: |
           git clone https://github.com/LSPosed/MagiskOnWSALocal.git --depth 1
           cd MagiskOnWSALocal
-          ./scripts/build.sh --arch x64 --release-type retail magisk-ver stable -gapps-brand MindTheGapps-gapps-variant pico --root-sol magisk --compress-compress-format zip
+          ./scripts/build.sh --compress-format zip
 
             
 
