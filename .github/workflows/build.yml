@@ -38,6 +38,7 @@ jobs:
          run: |
           git clone https://github.com/LSPosed/MagiskOnWSALocal.git --depth 1
           cd MagiskOnWSALocal
+          sudo apt install e2fsprogs
           ./scripts/build.sh --compress-format zip
 
             
