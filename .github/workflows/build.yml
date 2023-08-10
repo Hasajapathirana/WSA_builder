@@ -30,7 +30,7 @@ jobs:
 
          run: |
             sudo apt update && sudo apt install git
-            sudo apt install qemu-img
+            sudo apt install lzip patchelf e2fsprogs python3 aria2 attr unzip qemu-utils 
 
         
        - name: Clone And Build
