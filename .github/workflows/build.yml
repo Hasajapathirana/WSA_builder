@@ -51,7 +51,7 @@ jobs:
             retention-days: 31
 
        - name: Create Release
-         uses: Shopify/upload-to-release@v1
+         uses: Shopify/upload-to-release@v1.0.1
          with:
           name: Windows Subsystem For Android Build
           path: /home/runner/work/WSA_builder/WSA_builder/MagiskOnWSALocal/output/*WSA*
