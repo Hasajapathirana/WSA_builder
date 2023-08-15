@@ -50,13 +50,13 @@ jobs:
             path: /home/runner/work/WSA_builder/WSA_builder/MagiskOnWSALocal/output/*WSA*
             retention-days: 31
 
+       - name: Create Release
+         uses: Shopify/upload-to-release@v1
+         with:
+          name: Windows Subsystem For Android Build
+          path: /home/runner/work/WSA_builder/WSA_builder/MagiskOnWSALocal/output/*WSA*
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
           
 
-       - name: Release Windows Subsystem For Android Build
-         uses: softprops/action-gh-release@v1
-         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-         with:
-          tag_name: ${{ github.run_id }}
-          name:  Windows Subsystem For Android Build
-          files: /home/runner/work/WSA_builder/WSA_builder/MagiskOnWSALocal/output/*WSA*
+          
+
