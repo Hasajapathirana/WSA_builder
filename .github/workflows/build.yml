@@ -46,7 +46,7 @@ jobs:
        - name: Save
          uses: actions/upload-artifact@v2
          with:
-            name: WSA 
+            name: Windows Subsystem For android
             path: /home/runner/work/WSA_builder/WSA_builder/MagiskOnWSALocal/output/*WSA*
             retention-days: 31
 
