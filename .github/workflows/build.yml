@@ -50,18 +50,6 @@ jobs:
             path: /home/runner/work/WSA_builder/WSA_builder/MagiskOnWSALocal/output/*WSA*
             retention-days: 31
 
-
-      
-       - name: Release recovery
-         uses: softprops/action-gh-release@v1
-         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-         with:
-          tag_name: ${{ github.run_id }}
-          name: Windows Subsystem For android
-          files: /home/runner/work/WSA_builder/WSA_builder/MagiskOnWSALocal/output/*WSA*
-          retention-days: 90
-
   
           
 
