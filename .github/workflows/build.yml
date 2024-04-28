@@ -1,6 +1,6 @@
 
  
-name: Building wsa
+name: Building Windows Subsytem for Android
 
 on:
 
@@ -25,18 +25,22 @@ jobs:
        - name: Install Git and other requirements 
 
          run: |
+            echo "installing dependencies"
             sudo apt update && sudo apt install git
             sudo apt install lzip patchelf e2fsprogs python3 aria2 attr unzip qemu-utils 
-
+            echo "installing completed"
         
        - name: Clone And Build
 
          run: |
+          echo "syncing the repo"
           git clone https://github.com/Hasajapathirana/MagiskOnWSALocal.git --depth 1
+          echo "sync completed"
           cd MagiskOnWSALocal
-          sudo apt install e2fsprogs
-          ./scripts/build.sh --arch x64 --release-type RP --magisk-ver stable --gapps-variant pico --remove-amazon --compress-format 7z
-
+          echo ""starting build"
+          ./scripts/build.sh --arch x64 --release-type retail --root-sol magisk --magisk-ver stable --install-gapps --compress-format 7z
+          echo "building completed"
+          
        - name: Save
          uses: actions/upload-artifact@v2
          with:
